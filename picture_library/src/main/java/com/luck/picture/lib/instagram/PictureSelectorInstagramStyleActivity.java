@@ -250,7 +250,11 @@ public class PictureSelectorInstagramStyleActivity extends PictureBaseActivity i
         mList.add(new PageGallery(mInstagramGallery));
         PagePhoto pagePhoto = new PagePhoto(this, config);
         mList.add(pagePhoto);
-        mList.add(new PageVideo(pagePhoto));
+
+        if(config.enableInstagramStyleVideoTab) {
+            mList.add(new PageVideo(pagePhoto));
+        }
+
         mInstagramViewPager = new InstagramViewPager(getContext(), mList, config);
         ((RelativeLayout) container).addView(mInstagramViewPager, params);
 
@@ -279,7 +283,10 @@ public class PictureSelectorInstagramStyleActivity extends PictureBaseActivity i
             }
         });
 
-        mInstagramViewPager.setSkipRange(1);
+        if(mList.size()>2) {
+            mInstagramViewPager.setSkipRange(1);
+        }
+
         mInstagramViewPager.setOnPageChangeListener(new OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -1622,7 +1629,12 @@ public class PictureSelectorInstagramStyleActivity extends PictureBaseActivity i
             bundle.putBoolean(InstagramMediaProcessActivity.EXTRA_ASPECT_RATIO, mPreviewContainer.isAspectRatio());
         }
 
-        InstagramMediaProcessActivity.launchActivity(this, config, result, bundle, InstagramMediaProcessActivity.REQUEST_SINGLE_IMAGE_PROCESS);
+
+        if(config.isCheckOriginalImage){
+            singleCropHandleResult(data);
+        }else{
+            InstagramMediaProcessActivity.launchActivity(this, config, result, bundle, InstagramMediaProcessActivity.REQUEST_SINGLE_IMAGE_PROCESS);
+        }
     }
 
     /**

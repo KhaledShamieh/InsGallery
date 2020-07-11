@@ -1212,6 +1212,19 @@ public class PictureSelectionModel {
         return this;
     }
 
+
+    public PictureSelectionModel isCheckOriginalImage(boolean isCheckOriginalImage){
+        selectionConfig.isCheckOriginalImage = isCheckOriginalImage;
+        return this;
+    }
+
+
+    public PictureSelectionModel enableInstagramStyleVideoTab(boolean enable){
+        selectionConfig.enableInstagramStyleVideoTab = enable;
+        return this;
+    }
+
+
     /**
      * Start to select media and wait for result.
      *
