@@ -3,6 +3,7 @@
     android:id="@+id/loading"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layoutDirection="ltr"
     android:background="@drawable/picture_dialog_custom_bg"
     android:orientation="vertical"
     android:padding="10dp">

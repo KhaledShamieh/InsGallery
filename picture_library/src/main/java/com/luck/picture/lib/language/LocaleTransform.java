@@ -31,6 +31,10 @@ public class LocaleTransform {
             case LanguageConfig.VIETNAM:
                 // 越南语
                 return new Locale("vi");
+
+            case LanguageConfig.ARABIC:
+                // 越南语
+                return new Locale("ar");
             default:
                 // 简体中文
                 return Locale.CHINESE;

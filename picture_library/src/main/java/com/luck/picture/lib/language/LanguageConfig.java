@@ -43,4 +43,7 @@ public class LanguageConfig {
      */
     public static final int VIETNAM = 7;
 
+
+    public static final int ARABIC = 8;
+
 }
